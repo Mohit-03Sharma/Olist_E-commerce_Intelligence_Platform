@@ -1,0 +1,22 @@
+version: "3.8"
+
+services:
+  # Flask REST API
+  olist-api:
+    build: .
+    container_name: olist-api
+    ports:
+      - "5000:5000"
+    command: python api/app.py
+    environment:
+      - FLASK_ENV=production
+    restart: unless-stopped
+
+  # Streamlit Dashboard
+  olist-dashboard:
+    build: .
+    container_name: olist-dashboard
+    ports:
+      - "8501:8501"
+    command: streamlit run app/dashboard.py --server.port=8501 --server.address=0.0.0.0 --server.headless=true
+    restart: unless-stopped
