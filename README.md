@@ -21,53 +21,6 @@ The challenge: **Can we predict which orders will get a negative review before t
 
 ---
 
-## Project Structure
-
-```
-olist-ecommerce-intelligence/
-│
-├── data/
-│   ├── raw/                          # 8 original Olist CSVs + translation file
-│   ├── processed/                    # Cleaned master table (generated)
-│   └── data_dictionary.md            # Column documentation with decisions
-│
-├── notebooks/
-│   ├── 02_EDA_business_insights      # 9-section EDA, every chart answers a business question
-│   ├── 03_feature_engineering        # Feature pipeline walkthrough
-│   ├── 05_model_interpretation       # SHAP analysis + business recommendations
-│   └── 06_nlp_review_analysis        # Portuguese text analysis with topic modeling
-│
-├── src/
-│   ├── data_loader.py                # Load 8 CSVs, clean, join into master table
-│   ├── feature_engineering.py        # 20+ features, encoding, scaling, SMOTE
-│   ├── train.py                      # 4 models, hyperparameter tuning, MLflow tracking
-│   └── evaluate.py                   # ROC, PR curves, confusion matrices, comparisons
-│
-├── sql/
-│   ├── 01_schema_exploration.sql     # Table profiling and key validation
-│   ├── 02_master_join.sql            # Full 8-table join with CTEs
-│   └── 03_business_kpis.sql          # Business metric queries
-│
-├── api/
-│   ├── app.py                        # Flask REST API with /docs, /predict, /predict/batch
-│   └── templates/dashboard.html      # Lightweight HTML interface
-│
-├── app/
-│   └── dashboard.py                  # Streamlit interactive dashboard (4 pages)
-│
-├── models/                           # Saved model + feature names (generated)
-├── reports/
-│   ├── figures/                      # All generated charts
-│   └── final_report.md               # Executive summary with recommendations
-│
-├── Dockerfile
-├── docker-compose.yml
-├── environment.yml                   # Conda environment
-└── README.md
-```
-
----
-
 ## Getting Started
 
 ### Prerequisites
